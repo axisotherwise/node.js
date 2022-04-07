@@ -1,2 +1,4 @@
-# node.js
-개인 프로젝트
+# Node.js
+프레임워크: Express
+데이터베이스: MySQL
+ORM: Sequelize
