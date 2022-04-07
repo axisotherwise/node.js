@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="notice-list-wrap">
+    <div class="write-form">
+      <h2>write</h2>
+      <form action="/notice/write" method="post" enctype="multipart/form-data">
+        <div class="detail-name">
+          <label for="">작성자</label>
+          <input name="title" type="text" placeholder="{{ post.User.name }}">
+        </div>
+        <div class="detail-title">
+          <label for="">제목</label>
+          <input name="title" type="text" placeholder="{{ post.title }}" class="detail-title">
+        </div>
+        <div class="detail-content">
+          <textarea name="content" placeholder="{{ post.content }}"></textarea>
+        </div>
+        <div>
+          <img name="imagepreview" src="{{ post.image }}" alt="미리보기" style="display: inline;" width="335" class="image-preview">
+          <input name="imageurl" type="hidden" class="image-url">
+        </div>
+        {% if post.UserId === user.id %}
+        <button type="submit">수정</button>
+      </form>
+      <button>삭제</button>
+        {% endif %}
+      <div class="detail-image">
+        <input name="image" type="file" class="image">
+      </div>
+    </div>
+  </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/main.js"></script>
+</body>
+</html>

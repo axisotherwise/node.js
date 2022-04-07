@@ -5,17 +5,20 @@ const nunjucks = require("nunjucks");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
+const multer = require("multer");
 const passport = require("passport");
 
 dotenv.config();
 const { sequelize } = require("./models");
 const indexRouter = require("./routes");
 const authRouter = require("./routes/auth");
+const noticeRouter = require("./routes/notice");
 const passportConfig = require("./passport");
 
 const app = express();
 passportConfig();
 app.set("port", process.env.PORT || 1000);
+app.set("multer", multer());
 app.set("view engine", "html");
 nunjucks.configure("views", {
   express: app,
@@ -31,6 +34,7 @@ sequelize.sync({ force: false })
 
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/img", express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -48,6 +52,7 @@ app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
+app.use("/notice", noticeRouter);
 
 
 app.use((req, res, next) => {

@@ -14,13 +14,11 @@ module.exports = () => {
       if (exUser) {
         done(null, exUser);
       } else {
-        const user = await User.create({
-          
-        })
+        
       }
     } catch (err) {
       console.error(err);
       done(err);
     }
-  }))
-}
+  }));
+};

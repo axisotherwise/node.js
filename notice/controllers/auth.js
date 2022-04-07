@@ -45,15 +45,3 @@ exports.authLogout = (req, res) => {
     res.clearCookie("connect.sid").redirect("/");
   });
 };
-
-exports.authKakao = (req, res) => {
-  passport.authenticate("kakao");
-};
-
-exports.authKakaoCallBack = (req, res, next) => {
-  passport.authenticate("kakao", {
-    failureRedirect: "/",
-  }), (req, res) => {
-    res.redirect("/profile");
-  };
-};
