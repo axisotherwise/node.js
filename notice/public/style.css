@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif KR', serif;
+}
+
+input {
+  border: 1px solid;
+}
+
+.user-wrap {
+  width: 300px;
+  height: 300px;
+}
+
+.user-form {
+  margin-top: 50px;
+}
+
+.user-form-email {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form-pass {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form-name {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form-profile {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form button {
+  display: block;
+  width: 100px;
+  margin: auto;
+  text-align: center;
+  background-color: transparent;
+}
+
+.user-form input {
+  width: 150px;
+}
+
+.join {
+  display: block;
+  margin-left: 120px;
+}
+
+.kakao {
+  text-decoration: none;
+  color: yellowgreen;
+  display: block;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.logout {
+  text-decoration: none;
+  color: royalblue;
+  display: block;
+  margin-left: 125px;
+  margin-top: 10px;
+}
