@@ -9,6 +9,12 @@
   <div class="notice-list-wrap">
     <div class="notice-form">
       <h2>notice</h2>
+      <div>
+        <span class="useremail">아이디 {{ user.email }}</span>
+      </div>
+      <div>
+        <span>이름 {{ user.name }}</span>
+      </div>
       <a href="/write">작성</a>
     </div>
     <table class="notice-list">
@@ -26,26 +32,45 @@
         {% for post in posts %}
         <tr>
           <td>{{ post.id }}</td>
+          <input type="hidden" value="{{ user.id }}" class="my-id">
           <td class="detail">
             <button class="detailnotice" value="{{ post.id }}">{{ post.title }}</button>
           </td>
           <td>{{ post.User.name }}</td>
           <td>미구현</td>
-          <td>0</td>
-          <td>55</td>
+          <td>{{ post.view }}</td>
+          <td></td>
+          {% if post.UserId !== user.id and not followingIdList.includes(post.User.id) %}
           <td class="following">
+            <input type="hidden" value="{{ post.User.id }}" class="user-id">
             <button class="followingbutton">팔로잉</button>
           </td>
+          {% endif %}
+          {% if followingIdList.includes(post.User.id) %}
+          <td class="following">
+            <input type="hidden" value="{{ post.User.id }}" class="user-id">
+            <button class="unfollowingbutton">언팔로잉</button>
+          </td>
+          {% endif %}
         </tr>
         {% endfor %}
       </tbody>
     </table>
-    <div class="paging">
-      <a href="#">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
+      <button class="first">1</button>
+      <button class="one">2</button>
+      <button class="two">3</button>
+      <button class="three">4</button>
+      <button class="last">5</button>
+  </div>
+  <div>
+    <div class="searchform">
+        <select name="category" class="select">
+          <option value="제목">제목</option>
+          <option value="내용">내용</option>
+          <option value="작성자">작성자</option>
+        </select>
+        <input type="text" class="search">
+        <button class="searchbutton">검색</button>
     </div>
   </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

@@ -11,10 +11,18 @@ module.exports = () => {
   passport.deserializeUser((id, done) => {
     User.findOne({
       where: { id },
-      include: Post,
+      include: [{
+        model: User,
+        as: "Followers",
+        attributes: [ "id", "name" ],
+      }, {
+        model: User,
+        as: "Followings",
+        attributes: [ "id", "name" ],
+      }],
     })
-    .then(user => done(null, user))
-    .catch(err => done(err));
+      .then(user => done(null, user))
+      .catch(err => done(err));
   });
 
   local();

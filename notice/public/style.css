@@ -11,6 +11,11 @@ input {
   border: 1px solid;
 }
 
+span {
+  color: green;
+  font-weight: 500;
+}
+
 .user-wrap {
   width: 300px;
   height: 300px;
@@ -177,7 +182,8 @@ table {
   width: 100%;
   margin: auto;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
+  color: greenyellow;
 }
 
 .notice-list-wrap .notice-list .detail {
@@ -212,4 +218,46 @@ table {
 
 .notice-list-wrap .detail-image input {
   width: 330px;
+}
+
+.notice-list-wrap .notice-list .unfollowingbutton {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  color: deeppink;
+}
+
+.searchform {
+  margin-left: 240px;
+}
+
+.searchbutton {
+  width: 55px;
+  background-color: transparent;
+}
+
+.first {
+  display: inline;
+  width: 5px;
+}
+
+.one {
+  display: inline;
+  width: 5px;
+}
+
+.two {
+  display: inline;
+  width: 5px;
+}
+
+.three {
+  display: inline;
+  width: 5px;
+}
+
+.last {
+  display: inline;
+  width: 5px;
 }

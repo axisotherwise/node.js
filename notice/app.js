@@ -11,6 +11,7 @@ const passport = require("passport");
 dotenv.config();
 const { sequelize } = require("./models");
 const indexRouter = require("./routes");
+const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
 const noticeRouter = require("./routes/notice");
 const passportConfig = require("./passport");
@@ -18,7 +19,6 @@ const passportConfig = require("./passport");
 const app = express();
 passportConfig();
 app.set("port", process.env.PORT || 1000);
-app.set("multer", multer());
 app.set("view engine", "html");
 nunjucks.configure("views", {
   express: app,
@@ -53,7 +53,7 @@ app.use(passport.session());
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/notice", noticeRouter);
-
+app.use("/user", userRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 존재하지 않습니다.`);
