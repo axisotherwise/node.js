@@ -17,7 +17,10 @@
           <textarea name="content" placeholder="내용"></textarea>
         </div>
         <div>
-          <img name="imagepreview" src="" alt="미리보기" style="display: none;" width="300" class="image-preview">
+          <img name="imagepreview"
+          onerror="this.src = this.src.replace(/\/thumb\//, '/original/');" 
+          src="" alt="미리보기" 
+          style="display: none;" width="300" class="image-preview">
           <input name="imageurl" type="hidden" class="image-url">
         </div>
         <button type="submit">작성</button>
@@ -38,7 +41,7 @@
   form.append("image", this.files[0]);
   axios.post("/notice/image", form)
     .then((res) => {
-      $imagePreview.src = res.data.url;
+      $imagePreview.src = res.data.originalUrl;
       $imagePreview.style.display = "inline";
       $imageUrl.value = res.data.url;
     })

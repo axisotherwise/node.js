@@ -5,13 +5,13 @@ const sanitizeHtml = require("sanitize-html");
 
 exports.authJoin = async (req, res, next) => {
   try {
-    const exUser = await User.findOne({ where: { email }});
+    const exUser = await User.findOne({ where: { email: req.body.email }});
     if (exUser) return res.redirect("/?error=이미 가입된 회원입니다.");
-    const hash = await bcrypt.hash(password, 12);
+    const hash = await bcrypt.hash(req.body.password, 12);
     await User.create({
-      email: sanitizeHtml(req.body.email),
-      name: sanitizeHtml(req.body.name),
-      profile: sanitizeHtml(req.body.profile),
+      email: req.body.email,
+      name: req.body.name,
+      profile: req.body.profile,
       password: hash,
     });
     res.status(201).redirect("/");

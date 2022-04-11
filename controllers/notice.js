@@ -2,17 +2,23 @@ const multer = require("multer");
 const path = require("path");
 const { Op } = require("sequelize"); 
 const { User, Post } = require("../models");  
+const AWS = require("aws-sdk");
+const multerS3 = require("multer-s3");
+
+AWS.config.update({
+  accessKeyId: process.env.S3_ACCESS_KEY_ID,
+  secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+  region: "ap-northeast-2",
+});
 
 exports.uploadNone = multer();
 
 exports.uploadImage = multer({
-  storage: multer.diskStorage({
-    destination(req, file, done) {
-      done(null, "uploads/");
-    },
-    filename(req, file, done) {
-      const ext = path.extname(file.originalname);
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+  storage: multerS3({
+    s3: new AWS.S3(),
+    bucket: "axisotherwise",
+    key(req, file, done) {
+      done(null, `original/${Date.now()}${path.basename(file.originalname)}`);
     },
   }),
   limits: { fileSize: 5 * 1024 * 1024 },
@@ -34,7 +40,13 @@ exports.noticeWrite = async (req, res, next) => {
 };
 
 exports.noticeImage = async (req, res, next) => {
-  res.json({ url: `/img/${req.file.filename}`});
+  console.log(req.file);
+  const originalUrl = req.file.location;
+  const url = originalUrl.replace(/\original\//, "/thumb/");
+  res.json({ 
+    url, 
+    originalUrl: req.file.location 
+  });
 };
 
 exports.noticeDetail = async (req, res, next) => {
