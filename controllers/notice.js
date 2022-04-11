@@ -41,7 +41,12 @@ exports.noticeWrite = async (req, res, next) => {
 
 exports.noticeImage = async (req, res, next) => {
   console.log(req.file);
-  res.json({ url: req.file.location });
+  const originalUrl = req.file.location;
+  const url = originalUrl.replace(/\original\//, "/thumb/");
+  res.json({ 
+    url, 
+    originalUrl: req.file.location 
+  });
 };
 
 exports.noticeDetail = async (req, res, next) => {
