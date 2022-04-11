@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="notice-list-wrap">
+    <div class="write-form">
+      <h2>write</h2>
+      <form action="/notice/write" method="post" enctype="multipart/form-data">
+        <div class="write-title">
+          <input name="title" type="text" placeholder="제목">
+        </div>
+        <div class="write-content">
+          <textarea name="content" placeholder="내용"></textarea>
+        </div>
+        <div>
+          <img name="imagepreview" src="" alt="미리보기" style="display: none;" width="300" class="image-preview">
+          <input name="imageurl" type="hidden" class="image-url">
+        </div>
+        <button type="submit">작성</button>
+      </form>
+      <div class="write-image">
+        <input name="image" type="file" class="image-upload">
+      </div>
+    </div>
+  </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  const $image = document.querySelector(".image-upload");
+  const $imageUrl = document.querySelector(".image-url");
+  const $imagePreview = document.querySelector(".image-preview");
+  
+  $image.addEventListener("change", function() {
+  const form = new FormData();
+  form.append("image", this.files[0]);
+  axios.post("/notice/image", form)
+    .then((res) => {
+      $imagePreview.src = res.data.url;
+      $imagePreview.style.display = "inline";
+      $imageUrl.value = res.data.url;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+</script>
+</body>
+</html>
