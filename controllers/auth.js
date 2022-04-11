@@ -9,9 +9,9 @@ exports.authJoin = async (req, res, next) => {
     if (exUser) return res.redirect("/?error=이미 가입된 회원입니다.");
     const hash = await bcrypt.hash(password, 12);
     await User.create({
-      email: sanitizeHtml(req.body.email),
-      name: sanitizeHtml(req.body.name),
-      profile: sanitizeHtml(req.body.profile),
+      email: req.body.email,
+      name: req.body.name,
+      profile: req.body.profile,
       password: hash,
     });
     res.status(201).redirect("/");
