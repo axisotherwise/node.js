@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif KR', serif;
+}
+
+input {
+  border: 1px solid;
+}
+
+span {
+  color: green;
+  font-weight: 500;
+}
+
+.user-wrap {
+  width: 300px;
+  height: 300px;
+}
+
+.user-form {
+  margin-top: 50px;
+}
+
+.user-form-email {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form-pass {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form-name {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form-profile {
+  width: 150px;
+  margin: auto;
+}
+
+.user-form button {
+  display: block;
+  width: 100px;
+  margin: auto;
+  text-align: center;
+  background-color: transparent;
+}
+
+.user-form input {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.join {
+  display: block;
+  margin-left: 120px;
+}
+
+.kakao {
+  text-decoration: none;
+  color: yellowgreen;
+  display: block;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.logout {
+  text-decoration: none;
+  color: royalblue;
+  display: block;
+  margin-left: 125px;
+  margin-top: 10px;
+}
+
+.index-title {
+  display: block;
+  margin-left: 120px;
+  margin-bottom: 30px;
+}
+
+.profile-title {
+  display: block;
+  margin-left: 105px;
+  margin-bottom: 30px;
+}
+
+.notice {
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+  text-decoration: none;
+  margin-left: 80px;
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.notice-list-wrap {
+  padding: 25px;
+}
+
+.notice-list {
+  width: 100%;
+  border-top: 2px solid black;
+}
+
+.notice-list tr {
+  border-bottom: 1px solid #ccc;
+}
+
+.notice-list th,
+.notice-list td {
+  padding: 5px;
+}
+
+.notice-list td {
+  text-align: center;
+}
+
+.notice-list-wrap .paging {
+  margin-top: 15px;
+  font-size: 0;
+  text-align: center;
+}
+
+.notice-list-wrap .paging a {
+  display: inline-block;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+.notice-list-wrap .notice-form a {
+  background-color: white;
+  font-size: 20px;
+  border: none;
+  margin-left: 675px;
+  margin-bottom: 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.notice-list-wrap textarea {
+  width: 300px;
+  height: 100px;
+
+  margin-top: 30px;
+}
+
+.notice-list-wrap input {
+  width: 300px;
+  margin-top: 20px;
+}
+
+.notice-list-wrap button {
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-left: 135px;
+}
+
+.notice-list-wrap .notice-list .following {
+  width: 200px;
+}
+
+.notice-list-wrap .notice-list .followingbutton {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  color: greenyellow;
+}
+
+.notice-list-wrap .notice-list .detail {
+  width: 200px;
+}
+
+.notice-list-wrap .notice-list .detailnotice {
+  width: 100%;
+  margin: auto;
+  font-size: 16px;
+  text-align: center;
+  color: blue;
+}
+
+.notice-list-wrap .detail-content textarea {
+  width: 335px;
+  height: 100px;
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+.notice-list-wrap .detail-title input {
+  width: 285px;
+  margin-left: 15px;
+  font-weight: 600;
+}
+
+.notice-list-wrap .detail-name input {
+  width: 285px;
+  font-weight: 600;
+}
+
+.notice-list-wrap .detail-image input {
+  width: 330px;
+}
+
+.notice-list-wrap .notice-list .unfollowingbutton {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  color: deeppink;
+}
+
+.searchform {
+  margin-left: 240px;
+}
+
+.searchbutton {
+  width: 55px;
+  background-color: transparent;
+}
+
+.first {
+  display: inline;
+  width: 5px;
+}
+
+.one {
+  display: inline;
+  width: 5px;
+}
+
+.two {
+  display: inline;
+  width: 5px;
+}
+
+.three {
+  display: inline;
+  width: 5px;
+}
+
+.last {
+  display: inline;
+  width: 5px;
+}
