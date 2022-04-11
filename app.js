@@ -9,14 +9,14 @@ const multer = require("multer");
 const hpp = require("hpp");
 const helmet = require("helmet");
 const passport = require("passport");
-const redis = require("redis");
-const RedisStore = require("connect-redis")(session);
+// const redis = require("redis");
+// const RedisStore = require("connect-redis")(session);
 
 dotenv.config();
-const redisClient = redis.createClient({
-  url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
-  password: process.env.REDIS_PASSWORD,
-});
+// const redisClient = redis.createClient({
+//   url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
+//   password: process.env.REDIS_PASSWORD,
+// });
 const { sequelize } = require("./models");
 const indexRouter = require("./routes");
 const userRouter = require("./routes/user");
@@ -62,7 +62,7 @@ app.use(session({
     httpOnly: true,
     secure: false,
   },
-  store: new RedisStore({ client: redisClient }),
+  // store: new RedisStore({ client: redisClient }),
 }));
 passportConfig();
 app.use(passport.initialize());
